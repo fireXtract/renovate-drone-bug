@@ -1,0 +1,24 @@
+---
+kind: pipeline
+name: test_pipeline
+trigger:
+  branch:
+    - master
+  event:
+    - push
+    - pull_request
+
+steps:
+  - name: "A"
+    image: golang:1.12
+    settings:
+      step: A
+    commands:
+      - go build
+
+  - name: "B"
+    image: golang:1.12
+    settings:
+      step: B
+    commands:
+      - go run main.go
