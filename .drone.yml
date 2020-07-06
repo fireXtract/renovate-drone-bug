@@ -22,3 +22,24 @@ steps:
       step: B
     commands:
       - go run main.go
+
+---
+kind: pipeline
+name: extra_pipeline
+trigger:
+  branch:
+    - master
+  event:
+    - push
+    - pull_request
+
+steps:
+  - name: "A"
+    image: terraform:0.12.26
+    settings:
+      step: A
+
+  - name: "B"
+    image: terraform:0.12.26
+    settings:
+      step: B
