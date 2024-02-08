@@ -10,14 +10,14 @@ trigger:
 
 steps:
   - name: "A"
-    image: golang:1.12
+    image: golang:1.22
     settings:
       step: A
     commands:
       - go build
 
   - name: "B"
-    image: golang:1.12
+    image: golang:1.22
     settings:
       step: B
     commands:
